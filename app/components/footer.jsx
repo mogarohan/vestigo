@@ -99,6 +99,57 @@ export default function Footer() {
           <li><Link href="/blogs" className="hover:text-blue-400 transition-all hover:translate-x-1 block">Latest Insights</Link></li>
           <li><Link href="/careers" className="hover:text-blue-400 transition-all hover:translate-x-1 block">Careers</Link></li>
         </ul>
+<div className="mt-10 lg:col-span-1">
+  <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-7 relative inline-block">
+    Contact Us
+    <span className="absolute -bottom-2 left-0 w-6 h-0.5 bg-blue-600"></span>
+  </h3>
+  
+  <ul className="space-y-6 text-[13px]">
+    {/* Dynamic Phone Link */}
+    <li>
+      <a 
+        href="tel:+1234567890" 
+        className="group flex items-center gap-4 hover:text-white transition-all"
+      >
+        <div className="w-9 h-9 rounded-xl bg-slate-800/40 flex items-center justify-center group-hover:bg-blue-600 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 border border-slate-700/50">
+          <Phone size={14} className="text-blue-400 group-hover:text-white" />
+        </div>
+        <div className="flex flex-col">
+          <span className="text-[10px] uppercase tracking-tighter text-slate-500 font-bold leading-none mb-1">Call Us</span>
+          <span className="font-semibold">+1 (234) 567-890</span>
+        </div>
+      </a>
+    </li>
+
+    {/* Dynamic Email Link */}
+    <li>
+      <a 
+        href="mailto:info@vestigo.com" 
+        className="group flex items-center gap-4 hover:text-white transition-all"
+      >
+        <div className="w-9 h-9 rounded-xl bg-slate-800/40 flex items-center justify-center group-hover:bg-blue-600 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 border border-slate-700/50">
+          <Mail size={14} className="text-blue-400 group-hover:text-white" />
+        </div>
+        <div className="flex flex-col">
+          <span className="text-[10px] uppercase tracking-tighter text-slate-500 font-bold leading-none mb-1">Email Support</span>
+          <span className="font-semibold">info@vestigo.com</span>
+        </div>
+      </a>
+    </li>
+
+    {/* Location Display */}
+    <li className="group flex items-center gap-4 transition-all">
+      <div className="w-9 h-9 rounded-xl bg-slate-800/40 flex items-center justify-center border border-slate-700/50">
+        <MapPin size={14} className="text-blue-400" />
+      </div>
+      <div className="flex flex-col">
+          <span className="text-[10px] uppercase tracking-tighter text-slate-500 font-bold leading-none mb-1">Our Office</span>
+          <span className="font-semibold leading-snug">Financial District,<br />New York, NY</span>
+      </div>
+    </li>
+  </ul>
+</div>
       </div>
     </div>
 
