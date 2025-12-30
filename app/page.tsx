@@ -32,7 +32,7 @@ export default function HomePage() {
   const isStatsInView = useInView(statsRef, { once: true });
 
   return (
-    <main className={`pt-16 ${poppins.className} bg-white overflow-hidden`}>
+    <main>
       
       {/* --- HERO SECTION WITH VIDEO BACKGROUND --- */}
       <section className="relative h-[90vh] min-h-[700px] flex items-center text-white overflow-hidden">
