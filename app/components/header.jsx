@@ -66,6 +66,21 @@ const NAV_DATA = [
       { name: 'Engineering', href: '/industries/engineering', icon: <ShieldCheck size={16} /> },
       { name: 'Hospitality', href: '/industries/hospitality', icon: <Users size={16} /> },
       
+      {  name: 'BFSI', href: '/industries/BFSI', icon: <Briefcase size={16} /> },
+      { name: 'E-Commerce', href: '/industries/e-commerce', icon: <Zap size={16} /> },
+      { name: 'Hospital & Education', href: '/industries/hospital&education', icon: <ShieldCheck size={16} /> },
+      {  name: 'Shipping', href: '/industries/shipping&odccargo', icon: <Users size={16} /> },
+      
+      {name: 'Packaging', href: '/industries/packaging', icon: <Briefcase size={16} /> },
+      { name: 'Paper Mills', href: '/industries/papermills', icon: <Zap size={16} /> },
+      {  name: 'Chemical & Pharmacy', href: '/industries/chemical&pharmaceuticals', icon: <ShieldCheck size={16} /> },
+      { name: 'Green Energy', href: '/industries/greenenergy' , icon: <Users size={16} /> },
+
+      {  name: 'Plastic', href: '/industries/plastic', icon: <Briefcase size={16} /> },
+      {  name: 'Textile', href: '/industries/textile', icon: <Zap size={16} /> },
+      { name: 'SME & MSME', href: '/industries/SME&MSME', icon: <ShieldCheck size={16} /> },
+      { name: 'Wood & Laminates', href: '/industries/wood&laminates' , icon: <Users size={16} /> },
+      
     ],
   },
 
@@ -143,82 +158,86 @@ export default function Header() {
                   </Link>
 
                   {/* ================= DROPDOWN ================= */}
-                  <AnimatePresence>
-                    {item.subLinks && activeMenu === item.name && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute left-1/2 -translate-x-1/2 mt-6 w-[600px]"
-                      >
-                        <div className="relative rounded-3xl overflow-hidden
-                          bg-gradient-to-br from-[#E3F6FF] via-[#D7EEFF] to-[#F8FDFF]
-                          shadow-[0_30px_80px_rgba(28,42,125,0.35)]
-                          border border-[#C9D600]/30
-                        ">
-                          {/* LEFT PANEL */}
-                          <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-br from-[#1C2A7D] to-[#2F6BFF] p-6 text-white">
-                            <div className="bg-white/20 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
-                              {item.icon}
-                            </div>
-                            <p className="text-sm text-white/90">
-                              {item.desc}
-                            </p>
-                          </div>
+                  {/* ================= DYNAMIC DROPDOWN ================= */}
+<AnimatePresence>
+  {item.subLinks && activeMenu === item.name && (
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 20, scale: 0.95 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      className="absolute left-1/2 -translate-x-1/2 mt-6"
+      // Dynamic Width Calculation based on link count
+      style={{
+        width: item.subLinks.length > 10 ? '1200px' : item.subLinks.length > 6 ? '900px' : '600px',
+      }}
+    >
+      <div className="relative rounded-3xl overflow-hidden
+        bg-gradient-to-br from-[#E3F6FF] via-[#D7EEFF] to-[#F8FDFF]
+        shadow-[0_30px_80px_rgba(28,42,125,0.35)]
+        border border-[#C9D600]/30"
+      >
+        {/* LEFT PANEL */}
+        <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-br from-[#1C2A7D] to-[#2F6BFF] p-6 text-white">
+          <div className="bg-white/20 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+            {item.icon}
+          </div>
+          <p className="text-sm font-medium text-white/90">
+            {item.desc}
+          </p>
+        </div>
 
-                          {/* LINKS */}
-                          <div className="ml-48 p-8 grid grid-cols-1 grid-rows-4  gap-5">
-                            {item.subLinks.map((sub) => {
-                              const isSubActive = pathname === sub.href;
+        {/* DYNAMIC GRID LINKS */}
+        <div 
+          className={`ml-48 p-8 grid  gap-5 ${
+            item.subLinks.length > 10 
+              ? 'grid-cols-4' // Big list: 6 columns
+              : item.subLinks.length > 5 
+                ? 'grid-cols-3' // Medium list: 4 columns
+                : 'grid-cols-2' // Small list: 2 columns
+          }`}
+        >
+          {item.subLinks.map((sub) => {
+            const isSubActive = pathname === sub.href;
 
-                              return (
-                                <Link
-                                  key={sub.name}
-                                  href={sub.href}
-                                  className="group flex items-center gap-4 p-4 rounded-xl
-                                  bg-white/40 backdrop-blur-md
-                                  hover:bg-white/70 transition-all duration-300
-                                  shadow-sm hover:shadow-lg"
-                                >
-                                  {/* AVATAR */}
-                                  <div
-                                    className="w-10 h-10 rounded-full flex items-center justify-center
-                                    bg-gradient-to-br from-[#4FC3F7] to-[#2F6BFF]
-                                    text-white shadow-md
-                                    group-hover:shadow-[0_0_15px_rgba(201,214,0,0.7)] transition"
-                                  >
-                                    {sub.icon}
-                                  </div>
+            return (
+              <Link
+                key={sub.name}
+                href={sub.href}
+                className="group flex flex-col-2 items-start gap-3 p-3 rounded-xl
+                bg-white/40 backdrop-blur-md border border-white/20
+                hover:bg-white/70 transition-all duration-300
+                shadow-sm hover:shadow-lg"
+              >
+                {/* ICON/AVATAR */}
+                <div
+                  className="w-8 h-8 rounded-lg flex items-center justify-center
+                  bg-gradient-to-br from-[#4FC3F7] to-[#2F6BFF]
+                  text-white shadow-md group-hover:scale-110 transition-transform"
+                >
+                  {sub.icon}
+                </div>
 
-                                  {/* TEXT */}
-                                  <div className="relative">
-                                    <p
-                                      className={`font-semibold text-sm
-                                      ${isSubActive ? 'text-blue-700' : 'text-[#1C2A7D]'}`}
-                                    >
-                                      {sub.name}
-                                    </p>
-
-                                    {/* UNDERLINE */}
-                                    <span
-                                      className={`absolute left-0 -bottom-1 h-[2px] bg-[#C9D600] rounded-full transition-all
-                                      ${
-                                        isSubActive
-                                          ? 'w-full opacity-100 shadow-[0_0_6px_rgba(201,214,0,0.6)]'
-                                          : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'
-                                      }
-                                    `}
-                                    />
-                                  </div>
-                                </Link>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                {/* TEXT */}
+                <div className="relative justify-center mt-2 ">
+                  <p className={`font-bold text-[11px] leading-tight uppercase tracking-wider
+                    ${isSubActive ? 'text-blue-700' : 'text-[#1C2A7D]'}`}
+                  >
+                    {sub.name}
+                  </p>
+                  <span
+                    className={`absolute left-0 -bottom-1 h-[2px] bg-[#C9D600] rounded-full transition-all
+                    ${isSubActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'}`}
+                  />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
                 </div>
               );
             })}
