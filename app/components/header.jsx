@@ -65,7 +65,7 @@ const NAV_DATA = [
       { name: 'Plastic', href: '/industries/plastic' },
       { name: 'Textile', href: '/industries/textile' },
       { name: 'SME & MSME', href: '/industries/SME&MSME' },
-      { name: 'Wood & Laminates', href: '/industries/wood&lanivates' },
+      { name: 'Wood & Laminates', href: 'industries/wood&laminates' },
     ],
   },
   { name: 'Insights', href: '/blogs' },
