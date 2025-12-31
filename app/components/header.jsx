@@ -89,63 +89,74 @@ export default function Navbar() {
     setIsMobileOpen(false);
     setMobileActiveTab(null);
   }, [pathname]);
-
+  
   return (
     <>
-      <header className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${isScrolled ? 'py-1.5' : 'py-3'} ${poppins.className}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`relative flex items-center justify-between transition-all duration-300 px-4 py-1.5 rounded-full ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border border-slate-100' : 'bg-transparent'}`}>
-            
-            <Link href="/" className="relative z-[110] flex-shrink-0">
-              <Image src="/logo.svg" alt="Logo" width={100} height={32} className="w-auto h-7 md:h-8 object-contain" priority />
+     <header className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'} ${poppins.className}`}>
+  <div className="max-w-7xl mx-auto px-6">
+    {/* Background changed from bg-white to bg-blue-50 */}
+    <div className={`relative flex items-center justify-between transition-all duration-300 px-6 py-2 rounded-full bg-blue-50 shadow-lg border border-blue-100/50`}>
+      
+      <Link href="/" className="relative z-[110] flex-shrink-0">
+        <Image src="/logo.svg" alt="Logo" width={100} height={32} className="w-auto h-7 md:h-8 object-contain" priority />
+      </Link>
+
+      <nav className="hidden lg:flex items-center gap-1">
+        {NAV_DATA.map((link) => (
+          <div key={link.name} className="relative group" onMouseEnter={() => setActiveDropdown(link.name)} onMouseLeave={() => setActiveDropdown(null)}>
+            <Link 
+              href={link.href} 
+              className={`flex items-center gap-1 px-4 py-2 rounded-full font-bold text-[13px] transition-all ${pathname === link.href ? 'text-blue-700 bg-blue-100/50' : 'text-slate-700 hover:text-blue-600 hover:bg-white/50'}`}
+            >
+              {link.name}
+              {link.subLinks && <ChevronDown size={11} className={`transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-0.5">
-              {NAV_DATA.map((link) => (
-                <div key={link.name} className="relative group" onMouseEnter={() => setActiveDropdown(link.name)} onMouseLeave={() => setActiveDropdown(null)}>
-                  <Link href={link.href} className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full font-bold text-[12px] transition-all ${pathname === link.href ? 'text-blue-600' : 'text-slate-700 hover:text-blue-600'}`}>
-                    {link.name}
-                    {link.subLinks && <ChevronDown size={11} className={`transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
-                  </Link>
-
-                  <AnimatePresence>
-                    {link.subLinks && activeDropdown === link.name && (
-                      <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 5 }} className="absolute top-full left-1/2 -translate-x-1/2 pt-1 min-w-[500px]">
-                        <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden flex">
-                          <div className="w-36 bg-slate-50 p-5 flex flex-col justify-center border-r border-slate-100">
-                            <div className="bg-blue-600 w-8 h-8 rounded-lg flex items-center justify-center text-white mb-2 shadow-sm">{link.icon || <ShieldCheck size={16} />}</div>
-                            <h4 className="font-bold text-slate-900 text-[11px] mb-0.5">{link.name}</h4>
-                            <p className="text-slate-500 text-[9px] leading-tight line-clamp-2">{link.featured}</p>
+            <AnimatePresence>
+              {link.subLinks && activeDropdown === link.name && (
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute top-full left-1/2 -translate-x-1/2 pt-2 min-w-[500px]">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-blue-50 overflow-hidden flex">
+                    <div className="w-36 bg-blue-50/50 p-5 flex flex-col justify-center border-r border-blue-50">
+                      <div className="bg-blue-600 w-8 h-8 rounded-lg flex items-center justify-center text-white mb-2 shadow-sm">{link.icon || <ShieldCheck size={16} />}</div>
+                      <h4 className="font-bold text-slate-900 text-[11px] mb-0.5">{link.name}</h4>
+                      <p className="text-slate-500 text-[9px] leading-tight line-clamp-2">{link.featured}</p>
+                    </div>
+                    <div className="flex-1 p-3 grid grid-cols-2 gap-x-2 gap-y-1">
+                      {link.subLinks.map((sub) => (
+                        <Link key={sub.name} href={sub.href} className="group/item p-2 rounded-lg hover:bg-blue-50 transition-all">
+                          <div className="flex items-center justify-between">
+                            <span className="text-slate-900 font-bold text-[11px] group-hover/item:text-blue-600">{sub.name}</span>
+                            <ArrowRight size={10} className="opacity-0 group-hover/item:opacity-100 transition-all text-blue-600" />
                           </div>
-                          <div className="flex-1 p-3 grid grid-cols-2 gap-x-2 gap-y-1">
-                            {link.subLinks.map((sub) => (
-                              <Link key={sub.name} href={sub.href} className="group/item p-2 rounded-lg hover:bg-blue-50 transition-all">
-                                <div className="flex items-center justify-between">
-                                  <span className="text-slate-900 font-bold text-[11px] group-hover/item:text-blue-600">{sub.name}</span>
-                                  <ArrowRight size={10} className="opacity-0 group-hover/item:opacity-100 transition-all text-blue-600" />
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-            </nav>
-
-            <div className="hidden lg:flex items-center gap-2">
-               <button className="text-slate-400 hover:text-blue-600 transition-colors p-1.5 rounded-full"><PhoneCall size={14} /></button>
-               <Link href="/contacts" className="bg-slate-900 text-white px-5 py-1.5 rounded-full font-bold text-[10px] tracking-wider uppercase transition-all hover:bg-blue-600 active:scale-95 shadow-sm">Contact</Link>
-            </div>
-
-            <button onClick={() => setIsMobileOpen(true)} className="lg:hidden p-1.5 bg-slate-100 rounded-lg text-slate-900">
-              <Menu size={18} />
-            </button>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-        </div>
-      </header>
+        ))}
+      </nav>
+
+      <div className="hidden lg:flex items-center gap-3">
+        <button className="text-blue-400 hover:text-blue-600 transition-colors p-1.5 rounded-full">
+          <PhoneCall size={16} />
+        </button>
+        <Link 
+          href="/contacts" 
+          className="bg-blue-600 text-white px-6 py-2 rounded-full font-bold text-[11px] tracking-wider uppercase transition-all hover:bg-blue-700 active:scale-95 shadow-md shadow-blue-200"
+        >
+          Contact
+        </Link>
+      </div>
+
+      <button onClick={() => setIsMobileOpen(true)} className="lg:hidden p-2 bg-blue-100/50 rounded-full text-blue-900">
+        <Menu size={20} />
+      </button>
+    </div>
+  </div>
+</header>
 
       <AnimatePresence>
         {isMobileOpen && (
