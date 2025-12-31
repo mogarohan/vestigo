@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Poppins } from 'next/font/google';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ShieldCheck, BarChart3, Users, Heart, ArrowRight, PlayCircle ,Briefcase} from 'lucide-react';
+import Hero from './components/Hero';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -33,7 +34,7 @@ export default function HomePage() {
   return (
     <main className={poppins.className}>
       
-      {/* --- HERO SECTION --- */}
+      {/* --- HERO SECTION --- *
       <section className="relative h-[90vh] min-h-[700px] flex items-center text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/80 to-transparent z-10" />
@@ -89,7 +90,8 @@ export default function HomePage() {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </section>*/}
+      <Hero/>
 
       {/* --- STATS SECTION --- */}
       <section className="py-32 bg-white relative">

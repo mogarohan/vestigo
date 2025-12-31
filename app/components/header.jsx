@@ -6,201 +6,241 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Poppins } from 'next/font/google';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ChevronDown, Menu, X, ArrowRight, ShieldCheck, 
-  Zap, Briefcase, Globe, PhoneCall
+import {
+  ChevronDown,
+  Menu,
+  PhoneCall,
+  Globe,
+  Zap,
+  Briefcase,
+  Users,
+  Star,
+  ShieldCheck,
+  Handshake,
 } from 'lucide-react';
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700'],
 });
 
+/* ================= NAV DATA ================= */
 const NAV_DATA = [
   { name: 'Home', href: '/' },
+
   {
     name: 'Company',
     href: '/company',
-    icon: <Globe className="w-5 h-5" />,
-    featured: "Securing your future with trust since 2010.",
+    icon: <Globe size={20} />,
+    desc: 'Securing your future with trust since 2010.',
     subLinks: [
-      { name: 'Who We Are', href: '/company/whoweare', desc: 'Our mission and legacy' },
-      { name: 'Why Us', href: '/company/whyus', desc: 'The Vestigo advantage' },
-      { name: 'Our Team', href: '/company/ourteam', desc: 'Meet our specialists' },
-      { name: 'Our Partners', href: '/company/ourpartners', desc: 'Strategic alliances' },
+      { name: 'Who We Are', href: '/company/whoweare', icon: <ShieldCheck size={16} /> },
+      { name: 'Why Us', href: '/company/whyus', icon: <Star size={16} /> },
+      { name: 'Our Team', href: '/company/ourteam', icon: <Users size={16} /> },
+      { name: 'Our Partners', href: '/company/ourpartners', icon: <Handshake size={16} /> },
     ],
   },
+
   {
     name: 'Solutions',
     href: '/solutions',
-    icon: <Zap className="w-5 h-5" />,
-    featured: "Customized risk protection.",
+    icon: <Zap size={20} />,
+    desc: 'Smart, scalable insurance solutions.',
     subLinks: [
-      { name: 'Risk Assessment', href: '/solutions/audits&riskassessment' },
-      { name: 'Claims Management', href: '/solutions/claimsmanagement' },
-      { name: 'Commercial Insurance', href: '/solutions/commercialinsurance' },
-      { name: 'Employee Benefits', href: '/solutions/employeebenifits' },
-      { name: 'Life Insurance', href: '/solutions/lifeinsurance' },
-      { name: 'Surety & Credit', href: '/solutions/suretybond&creditinsurance' },
+      { name: 'Risk Assessment', href: '/solutions/audits&riskassessment', icon: <ShieldCheck size={16} /> },
+      { name: 'Claims Management', href: '/solutions/claimsmanagement', icon: <Users size={16} /> },
+      { name: 'Commercial Insurance', href: '/solutions/commercialinsurance', icon: <Briefcase size={16} /> },
+      { name: 'Employee Benefits', href: '/solutions/employeebenifits', icon: <Users size={16} /> },
+      { name: 'Life Insurance', href: '/solutions/lifeinsurance', icon: <ShieldCheck size={16} /> },
     ],
   },
+
   {
     name: 'Industries',
     href: '/industries',
-    icon: <Briefcase className="w-5 h-5" />,
-    featured: "Safety shields for every sector.",
+    icon: <Briefcase size={20} />,
+    desc: 'Protection designed for every industry.',
     subLinks: [
-      { name: 'Automotive', href: '/industries/automobile' },
-      { name: 'BFSI', href: '/industries/BFSI' },
-      { name: 'E-Commerce', href: '/industries/e-commerce' },
-      { name: 'IT & Tech', href: '/industries/it' },
-      { name: 'Engineering', href: '/industries/engineering' },
-      { name: 'Shipping', href: '/industries/shipping&odccargo' },
-      { name: 'Chemical & Pharmacy', href: '/industries/chemical&pharmaceuticals' },
-      { name: 'Green Energy', href: '/industries/greenenergy' },
-      { name: 'Hospital & Education', href: '/industries/hospital&education' },
-      { name: 'Hospitality', href: '/industries/hospitality' },
-      { name: 'Packaging', href: '/industries/packaging' },
-      { name: 'Paper Mills', href: '/industries/papermills' },
-      { name: 'Plastic', href: '/industries/plastic' },
-      { name: 'Textile', href: '/industries/textile' },
-      { name: 'SME & MSME', href: '/industries/SME&MSME' },
-      { name: 'Wood & Laminates', href: '/industries/wood&laminates' },
+      { name: 'Automotive', href: '/industries/automobile', icon: <Briefcase size={16} /> },
+      { name: 'IT & Tech', href: '/industries/it', icon: <Zap size={16} /> },
+      { name: 'Engineering', href: '/industries/engineering', icon: <ShieldCheck size={16} /> },
+      { name: 'Hospitality', href: '/industries/hospitality', icon: <Users size={16} /> },
+      
     ],
   },
+
   { name: 'Insights', href: '/blogs' },
 ];
 
-export default function Navbar() {
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [mobileActiveTab, setMobileActiveTab] = useState(null); // Fix: Removed TypeScript notation
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [isScrolled, setIsScrolled] = useState(false);
+export default function Header() {
   const pathname = usePathname();
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 15);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsMobileOpen(false);
-    setMobileActiveTab(null);
-  }, [pathname]);
-  
   return (
-    <>
-     <header className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'} ${poppins.className}`}>
-  <div className="max-w-7xl mx-auto px-6">
-    {/* Background changed from bg-white to bg-blue-50 */}
-    <div className={`relative flex items-center justify-between transition-all duration-300 px-6 py-2 rounded-full bg-blue-50 shadow-lg border border-blue-100/50`}>
-      
-      <Link href="/" className="relative z-[110] flex-shrink-0">
-        <Image src="/logo.svg" alt="Logo" width={100} height={32} className="w-auto h-15 md:h-8 object-contain" priority />
-      </Link>
-
-      <nav className="hidden lg:flex items-center gap-1">
-        {NAV_DATA.map((link) => (
-          <div key={link.name} className="relative group" onMouseEnter={() => setActiveDropdown(link.name)} onMouseLeave={() => setActiveDropdown(null)}>
-            <Link 
-              href={link.href} 
-              className={`flex items-center gap-1 px-4 py-2 rounded-full font-bold text-[13px] transition-all ${pathname === link.href ? 'text-blue-700 bg-blue-100/50' : 'text-slate-700 hover:text-blue-600 hover:bg-white/50'}`}
-            >
-              {link.name}
-              {link.subLinks && <ChevronDown size={11} className={`transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
-            </Link>
-
-            <AnimatePresence>
-              {link.subLinks && activeDropdown === link.name && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute top-full left-1/2 -translate-x-1/2 pt-2 min-w-[500px]">
-                  <div className="bg-white rounded-2xl shadow-2xl border border-blue-50 overflow-hidden flex">
-                    <div className="w-36 bg-blue-50/50 p-5 flex flex-col justify-center border-r border-blue-50">
-                      <div className="bg-blue-600 w-8 h-8 rounded-lg flex items-center justify-center text-white mb-2 shadow-sm">{link.icon || <ShieldCheck size={16} />}</div>
-                      <h4 className="font-bold text-slate-900 text-[11px] mb-0.5">{link.name}</h4>
-                      <p className="text-slate-500 text-[9px] leading-tight line-clamp-2">{link.featured}</p>
-                    </div>
-                    <div className="flex-1 p-3 grid grid-cols-2 gap-x-2 gap-y-1">
-                      {link.subLinks.map((sub) => (
-                        <Link key={sub.name} href={sub.href} className="group/item p-2 rounded-lg hover:bg-blue-50 transition-all">
-                          <div className="flex items-center justify-between">
-                            <span className="text-slate-900 font-bold text-[11px] group-hover/item:text-blue-600">{sub.name}</span>
-                            <ArrowRight size={10} className="opacity-0 group-hover/item:opacity-100 transition-all text-blue-600" />
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        ))}
-      </nav>
-
-      <div className="hidden lg:flex items-center gap-3">
-        <button className="text-blue-400 hover:text-blue-600 transition-colors p-1.5 rounded-full">
-          <PhoneCall size={16} />
-        </button>
-        <Link 
-          href="/contacts" 
-          className="bg-blue-600 text-white px-6 py-2 rounded-full font-bold text-[11px] tracking-wider uppercase transition-all hover:bg-blue-700 active:scale-95 shadow-md shadow-blue-200"
+    <header className={`fixed top-4 left-0 w-full z-[100] ${poppins.className}`}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div
+          className={`flex items-center justify-between px-6 py-3 rounded-full transition-all
+          ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg' : 'bg-white/90'}
+        `}
         >
-          Contact
-        </Link>
-      </div>
+          {/* LOGO */}
+          <Link href="/">
+            <Image src="/logo.svg" alt="Vestigo" width={140} height={40} />
+          </Link>
 
-      <button onClick={() => setIsMobileOpen(true)} className="lg:hidden p-2 bg-blue-100/50 rounded-full text-blue-900">
-        <Menu size={20} />
-      </button>
-    </div>
-  </div>
-</header>
+          {/* ================= DESKTOP NAV ================= */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {NAV_DATA.map((item) => {
+              const isSectionActive =
+                pathname === item.href ||
+                pathname.startsWith(item.href + '/');
 
-      <AnimatePresence>
-        {isMobileOpen && (
-          <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsMobileOpen(false)} className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[200] lg:hidden" />
-            <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 25, stiffness: 200 }} className="fixed top-0 right-0 h-full w-[85%] max-w-[400px] bg-white z-[210] lg:hidden shadow-2xl flex flex-col">
-              <div className="p-6 flex items-center justify-between border-b border-slate-100">
-                <Link href="/" className="relative z-[110] flex-shrink-0">
-              <Image src="/logo.svg" alt="Logo" width={100} height={32} className="w-auto h-7 md:h-8 object-contain" priority />
-            </Link>
-                <button onClick={() => setIsMobileOpen(false)} className="p-2 bg-slate-50 rounded-full text-slate-500"><X size={20} /></button>
-              </div>
-              <div className="flex-1 overflow-y-auto p-6 space-y-2">
-                {NAV_DATA.map((link) => (
-                  <div key={link.name} className="border-b border-slate-50 last:border-0 pb-2">
-                    {link.subLinks ? (
-                      <>
-                        <button onClick={() => setMobileActiveTab(mobileActiveTab === link.name ? null : link.name)} className="w-full flex items-center justify-between py-3 text-slate-900 font-bold text-lg">
-                          {link.name}
-                          <ChevronDown size={18} className={`transition-transform duration-300 ${mobileActiveTab === link.name ? 'rotate-180 text-blue-600' : 'text-slate-300'}`} />
-                        </button>
-                        <AnimatePresence>
-                          {mobileActiveTab === link.name && (
-                            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden bg-slate-50 rounded-xl px-4 py-2 space-y-3">
-                              {link.subLinks.map((sub) => (
-                                <Link key={sub.name} href={sub.href} className="block py-1 text-slate-600 font-medium text-sm hover:text-blue-600">{sub.name}</Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </>
-                    ) : (
-                      <Link href={link.href} className="block py-3 text-slate-900 font-bold text-lg">{link.name}</Link>
+              return (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => setActiveMenu(item.name)}
+                  onMouseLeave={() => setActiveMenu(null)}
+                >
+                  {/* TOP LINK */}
+                  <Link
+                    href={item.href}
+                    className="relative text-sm font-semibold text-slate-700 hover:text-blue-600 transition"
+                  >
+                    {item.name}
+
+                    {item.subLinks && (
+                      <ChevronDown
+                        size={12}
+                        className={`inline ml-1 transition-transform
+                        ${
+                          activeMenu === item.name || isSectionActive
+                            ? 'rotate-180 text-blue-600'
+                            : 'text-slate-400'
+                        }
+                      `}
+                      />
                     )}
-                  </div>
-                ))}
-              </div>
-              <div className="p-6 bg-slate-50 border-t border-slate-100">
-                <Link href="/contacts" className="w-full bg-blue-600 text-white h-14 rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg active:scale-95 transition-transform">Get Started <ArrowRight size={20} /></Link>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
+
+                    {/* YELLOW UNDERLINE */}
+                    <span
+                      className={`absolute left-1/2 -translate-x-1/2 -bottom-1 h-[3px] bg-[#C9D600] rounded-full transition-all
+                      ${
+                        activeMenu === item.name || isSectionActive
+                          ? 'w-6 opacity-100 shadow-[0_0_10px_rgba(201,214,0,0.8)]'
+                          : 'w-0 opacity-0'
+                      }
+                    `}
+                    />
+                  </Link>
+
+                  {/* ================= DROPDOWN ================= */}
+                  <AnimatePresence>
+                    {item.subLinks && activeMenu === item.name && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute left-1/2 -translate-x-1/2 mt-6 w-[600px]"
+                      >
+                        <div className="relative rounded-3xl overflow-hidden
+                          bg-gradient-to-br from-[#E3F6FF] via-[#D7EEFF] to-[#F8FDFF]
+                          shadow-[0_30px_80px_rgba(28,42,125,0.35)]
+                          border border-[#C9D600]/30
+                        ">
+                          {/* LEFT PANEL */}
+                          <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-br from-[#1C2A7D] to-[#2F6BFF] p-6 text-white">
+                            <div className="bg-white/20 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                              {item.icon}
+                            </div>
+                            <p className="text-sm text-white/90">
+                              {item.desc}
+                            </p>
+                          </div>
+
+                          {/* LINKS */}
+                          <div className="ml-48 p-8 grid grid-cols-1 grid-rows-4  gap-5">
+                            {item.subLinks.map((sub) => {
+                              const isSubActive = pathname === sub.href;
+
+                              return (
+                                <Link
+                                  key={sub.name}
+                                  href={sub.href}
+                                  className="group flex items-center gap-4 p-4 rounded-xl
+                                  bg-white/40 backdrop-blur-md
+                                  hover:bg-white/70 transition-all duration-300
+                                  shadow-sm hover:shadow-lg"
+                                >
+                                  {/* AVATAR */}
+                                  <div
+                                    className="w-10 h-10 rounded-full flex items-center justify-center
+                                    bg-gradient-to-br from-[#4FC3F7] to-[#2F6BFF]
+                                    text-white shadow-md
+                                    group-hover:shadow-[0_0_15px_rgba(201,214,0,0.7)] transition"
+                                  >
+                                    {sub.icon}
+                                  </div>
+
+                                  {/* TEXT */}
+                                  <div className="relative">
+                                    <p
+                                      className={`font-semibold text-sm
+                                      ${isSubActive ? 'text-blue-700' : 'text-[#1C2A7D]'}`}
+                                    >
+                                      {sub.name}
+                                    </p>
+
+                                    {/* UNDERLINE */}
+                                    <span
+                                      className={`absolute left-0 -bottom-1 h-[2px] bg-[#C9D600] rounded-full transition-all
+                                      ${
+                                        isSubActive
+                                          ? 'w-full opacity-100 shadow-[0_0_6px_rgba(201,214,0,0.6)]'
+                                          : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'
+                                      }
+                                    `}
+                                    />
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </nav>
+
+          {/* CTA */}
+          <div className="hidden lg:flex items-center gap-4">
+            <PhoneCall size={16} className="text-slate-400" />
+            <Link
+              href="/contacts"
+              className="bg-[#1C2A7D] text-white px-5 py-2 rounded-full text-xs font-bold hover:bg-[#2F6BFF]"
+            >
+              CONTACT
+            </Link>
+          </div>
+
+          {/* MOBILE ICON */}
+          <button className="lg:hidden p-2 rounded-lg bg-slate-100">
+            <Menu size={18} />
+          </button>
+        </div>
+      </div>
+    </header>
   );
 }

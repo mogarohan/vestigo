@@ -39,12 +39,12 @@ const IndustriesHome = () => {
     { name: 'Green Energy', href: '/industries/greenenergy', icon: <Trees className="w-5 h-5" /> },
     { name: 'Hospital & Education', href: '/industries/hospital&education', icon: <Stethoscope className="w-5 h-5" /> },
     { name: 'Hospitality', href: '/industries/hospitality', icon: <Hotel className="w-5 h-5" /> },
-    { name: 'Packaging', href: '/industries/packging', icon: <Package className="w-5 h-5" /> },
+    { name: 'Packaging', href: '/industries/packaging', icon: <Package className="w-5 h-5" /> },
     { name: 'Paper Mills', href: '/industries/papermills', icon: <FileText className="w-5 h-5" /> },
     { name: 'Plastic', href: '/industries/plastic', icon: <Box className="w-5 h-5" /> },
     { name: 'Textile', href: '/industries/textile', icon: <Scissors className="w-5 h-5" /> },
     { name: 'SME & MSME', href: '/industries/SME&MSME', icon: <Users className="w-5 h-5" /> },
-    { name: 'Wood & Laminates', href: '/industries/wood&lanivates', icon: <Hammer className="w-5 h-5" /> },
+    { name: 'Wood & Laminates', href: '/industries/wood&laminates', icon: <Hammer className="w-5 h-5" /> },
   ];
 
   const featuredSectors = [
