@@ -1,57 +1,67 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+// Font Awesome Imports
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false; // Prevent Font Awesome from adding its own CSS
+
 import { 
-  Factory, 
-  Settings, 
-  Zap, 
-  ShieldCheck, 
-  Globe2, 
-  ArrowRight, 
-  ChevronRight,
-  Users,
-  Building2,
-  Briefcase,
-  Car,
-  Layers,
-  FlaskConical,
-  Trees,
-  Stethoscope,
-  Hotel,
-  Package,
-  Box,
-  Cpu,
-  Scissors,
-  Ship,
-  FileText,
-  Hammer
-} from 'lucide-react';
+  faCar, 
+  faLandmark, 
+  faCartShopping, 
+  faLaptopCode, 
+  faCogs, 
+  faShip, 
+  faFlaskVial, 
+  faLeaf, 
+  faHospitalUser, 
+  faHotel, 
+  faBoxOpen, 
+  faScroll, 
+  faPrescriptionBottle, 
+  faShirt, 
+  faIndustry, 
+  faTree, 
+  faGlobe, 
+  faShieldHalved,
+  faUsers, 
+  faBuilding, 
+  faBolt, 
+  faArrowRight, 
+  faChevronRight
+} from '@fortawesome/free-solid-svg-icons';
 
 const IndustriesHome = () => {
-  // Mapping your subLinks data with relevant icons
+  // Mapping your directory with Font Awesome
   const industriesDirectory = [
-    { name: 'Automotive', href: '/industries/automobile', icon: <Car className="w-5 h-5" /> },
-    { name: 'BFSI', href: '/industries/BFSI', icon: <Briefcase className="w-5 h-5" /> },
-    { name: 'E-Commerce', href: '/industries/e-commerce', icon: <Layers className="w-5 h-5" /> },
-    { name: 'IT & Tech', href: '/industries/it', icon: <Cpu className="w-5 h-5" /> },
-    { name: 'Engineering', href: '/industries/engineering', icon: <Settings className="w-5 h-5" /> },
-    { name: 'Shipping', href: '/industries/shipping&odccargo', icon: <Ship className="w-5 h-5" /> },
-    { name: 'Chemical & Pharmacy', href: '/industries/chemical&pharmaceuticals', icon: <FlaskConical className="w-5 h-5" /> },
-    { name: 'Green Energy', href: '/industries/greenenergy', icon: <Trees className="w-5 h-5" /> },
-    { name: 'Hospital & Education', href: '/industries/hospital&education', icon: <Stethoscope className="w-5 h-5" /> },
-    { name: 'Hospitality', href: '/industries/hospitality', icon: <Hotel className="w-5 h-5" /> },
-    { name: 'Packaging', href: '/industries/packaging', icon: <Package className="w-5 h-5" /> },
-    { name: 'Paper Mills', href: '/industries/papermills', icon: <FileText className="w-5 h-5" /> },
-    { name: 'Plastic', href: '/industries/plastic', icon: <Box className="w-5 h-5" /> },
-    { name: 'Textile', href: '/industries/textile', icon: <Scissors className="w-5 h-5" /> },
-    { name: 'SME & MSME', href: '/industries/SME&MSME', icon: <Users className="w-5 h-5" /> },
-    { name: 'Wood & Laminates', href: '/industries/wood&laminates', icon: <Hammer className="w-5 h-5" /> },
+    { name: 'Automotive', href: '/industries/automobile', icon: <FontAwesomeIcon icon={faCar} /> },
+    { name: 'BFSI', href: '/industries/BFSI', icon: <FontAwesomeIcon icon={faLandmark} /> },
+    { name: 'E-Commerce', href: '/industries/e-commerce', icon: <FontAwesomeIcon icon={faCartShopping} /> },
+    { name: 'IT & Tech', href: '/industries/it', icon: <FontAwesomeIcon icon={faLaptopCode} /> },
+    { name: 'Engineering', href: '/industries/engineering', icon: <FontAwesomeIcon icon={faCogs} /> },
+    { name: 'Shipping', href: '/industries/shipping&odccargo', icon: <FontAwesomeIcon icon={faShip} /> },
+    { name: 'Chemical & Pharmacy', href: '/industries/chemical&pharmaceuticals', icon: <FontAwesomeIcon icon={faFlaskVial} /> },
+    { name: 'Green Energy', href: '/industries/greenenergy', icon: <FontAwesomeIcon icon={faLeaf} /> },
+    { name: 'Hospital & Education', href: '/industries/hospital&education', icon: <FontAwesomeIcon icon={faHospitalUser} /> },
+    { name: 'Hospitality', href: '/industries/hospitality', icon: <FontAwesomeIcon icon={faHotel} /> },
+    { name: 'Packaging', href: '/industries/packaging', icon: <FontAwesomeIcon icon={faBoxOpen} /> },
+    { name: 'Paper Mills', href: '/industries/papermills', icon: <FontAwesomeIcon icon={faScroll} /> },
+    { name: 'Plastic', href: '/industries/plastic', icon: <FontAwesomeIcon icon={faPrescriptionBottle} /> },
+    { name: 'Textile', href: '/industries/textile', icon: <FontAwesomeIcon icon={faShirt} /> },
+    { name: 'SME & MSME', href: '/industries/SME&MSME', icon: <FontAwesomeIcon icon={faIndustry} /> },
+    { name: 'Wood & Laminates', href: '/industries/wood&laminates', icon: <FontAwesomeIcon icon={faTree} /> },
   ];
 
   const featuredSectors = [
-    { title: "Manufacturing", desc: "Industry 4.0 aur IoT integration.", icon: <Factory className="w-8 h-8" /> },
-    { title: "Energy & Power", desc: "Smart grid aur resource management.", icon: <Zap className="w-8 h-8" /> },
-    { title: "Infrastructure", icon: <Building2 className="w-8 h-8" />, desc: "Large-scale project tracking tools." },
-    { title: "BFSI", icon: <Briefcase className="w-8 h-8" />, desc: "High-security financial digital shields." }
+    { title: "Manufacturing", desc: "Industry 4.0 aur IoT integration.", icon: <FontAwesomeIcon icon={faIndustry} className="text-3xl" /> },
+    { title: "Energy & Power", desc: "Smart grid aur resource management.", icon: <FontAwesomeIcon icon={faBolt} className="text-3xl" /> },
+    { title: "Infrastructure", icon: <FontAwesomeIcon icon={faBuilding} className="text-3xl" />, desc: "Large-scale project tracking tools." },
+    { title: "BFSI", icon: <FontAwesomeIcon icon={faLandmark} className="text-3xl" />, desc: "High-security financial digital shields." }
   ];
 
   return (
@@ -64,18 +74,18 @@ const IndustriesHome = () => {
         <div className="max-w-6xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold mb-6 border border-blue-500/20 uppercase tracking-widest">
-              <Globe2 size={14} /> Global Enterprise Solutions
+              <FontAwesomeIcon icon={faGlobe} /> Global Enterprise Solutions
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               Scaling <span className="text-blue-500">Industries</span> <br /> 
               with Intelligence.
             </h1>
             <p className="text-lg text-slate-400 max-w-xl mb-10">
-              Vestigo Enterprise Suite provides specialized technology stacks for the world s most demanding industrial sectors. Efficiency, digitized.
+              Vestigo Enterprise Suite provides specialized technology stacks for the world's most demanding industrial sectors. Efficiency, digitized.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/industries" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg shadow-blue-500/20 flex items-center gap-2">
-                Explore Solutions <ArrowRight size={18} />
+              <Link href="/industries" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg shadow-blue-500/20 flex items-center gap-3">
+                Explore Solutions <FontAwesomeIcon icon={faArrowRight} />
               </Link>
             </div>
           </div>
@@ -84,17 +94,17 @@ const IndustriesHome = () => {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-30 animate-pulse"></div>
               <div className="relative bg-slate-800 rounded-2xl p-6 border border-white/10">
-                 <div className="flex items-center justify-between mb-8">
-                    <div className="text-blue-400 font-mono text-sm">SYSTEM_STATUS: ACTIVE</div>
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="text-blue-400 font-mono text-sm uppercase">System_Status: Active</div>
                     <div className="h-2 w-2 rounded-full bg-green-500 animate-ping"></div>
-                 </div>
-                 <div className="space-y-4">
+                  </div>
+                  <div className="space-y-4">
                     {[75, 40, 90].map((val, i) => (
                       <div key={i} className="h-2 bg-slate-700 rounded-full overflow-hidden">
                         <div className="h-full bg-blue-500 rounded-full" style={{width: `${val}%`}}></div>
                       </div>
                     ))}
-                 </div>
+                  </div>
               </div>
             </div>
           </div>
@@ -109,8 +119,8 @@ const IndustriesHome = () => {
               <h2 className="text-4xl font-bold text-slate-900 mb-4">Sectors We Empower</h2>
               <p className="text-slate-500">Comprehensive digital transformation across diverse industrial landscapes.</p>
             </div>
-            <Link href="/industries" className="text-blue-600 font-bold flex items-center gap-1 hover:gap-3 transition-all">
-              View Full Directory <ChevronRight size={20} />
+            <Link href="/industries" className="text-blue-600 font-bold flex items-center gap-2 hover:translate-x-2 transition-all">
+              View Full Directory <FontAwesomeIcon icon={faChevronRight} />
             </Link>
           </div>
 
@@ -128,7 +138,7 @@ const IndustriesHome = () => {
             ))}
           </div>
 
-          {/* --- SUB-PART: DYNAMIC DIRECTORY FROM YOUR subLinks --- */}
+          {/* Directory List */}
           <div className="border-t border-slate-100 pt-16">
             <div className="flex items-center gap-4 mb-10">
                <div className="h-px bg-blue-600 w-12"></div>
@@ -142,7 +152,7 @@ const IndustriesHome = () => {
                   href={ind.href}
                   className="flex items-center gap-3 p-4 rounded-xl border border-slate-50 bg-slate-50/50 hover:bg-white hover:border-blue-200 hover:shadow-md transition-all group cursor-pointer"
                 >
-                  <div className="p-2 rounded-lg bg-white text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-all shadow-sm">
+                  <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-white text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-all shadow-sm">
                     {ind.icon}
                   </div>
                   <span className="font-medium text-slate-700 group-hover:text-blue-700 text-sm md:text-base">
@@ -166,18 +176,22 @@ const IndustriesHome = () => {
                </p>
                <div className="grid grid-cols-2 gap-8">
                   <div className="flex gap-4 items-start">
-                    <div className="p-2 bg-blue-100 rounded-lg text-blue-600"><Users size={20}/></div>
+                    <div className="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-lg text-blue-600">
+                      <FontAwesomeIcon icon={faUsers} />
+                    </div>
                     <div><h4 className="font-bold text-2xl">500+</h4><p className="text-xs text-slate-500 uppercase font-bold">Clients</p></div>
                   </div>
                   <div className="flex gap-4 items-start">
-                    <div className="p-2 bg-blue-100 rounded-lg text-blue-600"><Globe2 size={20}/></div>
+                    <div className="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-lg text-blue-600">
+                      <FontAwesomeIcon icon={faGlobe} />
+                    </div>
                     <div><h4 className="font-bold text-2xl">40+</h4><p className="text-xs text-slate-500 uppercase font-bold">Countries</p></div>
                   </div>
                </div>
             </div>
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
-               <h4 className="font-bold text-slate-800 mb-6 flex items-center gap-2">
-                 <ShieldCheck className="text-green-500" /> Security & Compliance
+               <h4 className="font-bold text-slate-800 mb-6 flex items-center gap-3">
+                 <FontAwesomeIcon icon={faShieldHalved} className="text-green-500" /> Security & Compliance
                </h4>
                <ul className="space-y-4">
                  {["End-to-end data encryption", "24/7 Security Operations Center", "Multi-region cloud hosting", "Zero-trust architecture"].map((item, idx) => (
@@ -200,8 +214,8 @@ const IndustriesHome = () => {
             Apne operations ko digitize karein aur productivity ko nayi oonchaiyon par le jayein.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/contacts" className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-full font-bold transition-all shadow-xl shadow-blue-600/20 text-center">
-              Start Free Trial
+            <Link href="/contacts" className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-full font-bold transition-all shadow-xl shadow-blue-600/20 text-center flex items-center justify-center gap-3">
+              Start Free Trial <FontAwesomeIcon icon={faArrowRight} />
             </Link>
             <Link href="/contacts" className="bg-slate-900 hover:bg-slate-800 text-white px-12 py-4 rounded-full font-bold transition-all text-center">
               Talk to Specialist

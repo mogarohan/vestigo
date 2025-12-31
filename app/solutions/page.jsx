@@ -14,6 +14,17 @@ import {
   Layers
 } from 'lucide-react';
 import Link from 'next/link';
+import { 
+  faBuildingShield, 
+  faClipboardCheck, 
+  faUsersGear, 
+  faHeartPulse, 
+  faFileShield, 
+  faTruckFast, 
+  faFileContract, 
+  faMagnifyingGlassChart 
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Solutions() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -21,67 +32,87 @@ export default function Solutions() {
   const categories = ['All', 'Corporate', 'Health', 'Logistics', 'Industrial'];
 
   const solutions = [
-    {
-      id: "commercialinsurance",
-      category: 'Corporate',
-      title: "Commercial Insurance",
-      desc: "Tamara business assets ane liabilities ne secure karva mate expert cover.",
-      features: ["Property Insurance", "Liability Cover", "Cyber Risk"],
-      icon: <Briefcase />,
-      accent: "from-blue-500 to-cyan-400",
-      lightBg: "bg-blue-50"
-    },
-    {
-      id: "employeebenifits",
-      category: 'Health',
-      title: "Employee Benefits",
-      desc: "Tamara team mate best-in-class health insurance ane wellness programs.",
-      features: ["Group Medical", "Accident Cover", "Mental Wellness"],
-      icon: <HeartPulse />,
-      accent: "from-emerald-500 to-teal-400",
-      lightBg: "bg-emerald-50"
-    },
-    {
-      id: "audits-riskassessment",
-      category: 'Industrial',
-      title: "Audits & Risk Assessment",
-      desc: "Heavy machinery ane industrial units mate specialized risk management.",
-      features: ["Machinery Breakdown", "Fire & Special Perils", "Stock Insurance"],
-      icon: <Factory />,
-      accent: "from-orange-500 to-amber-400",
-      lightBg: "bg-amber-50"
-    },
-    {
-      id: "greenXinsurance",
-      category: 'Logistics',
-      title: "Green X Insurance",
-      desc: "Goods ni safe delivery mate supply chain insurance solutions.",
-      features: ["Cargo Insurance", "Transit Protection", "Fleet Management"],
-      icon: <Truck />,
-      accent: "from-purple-500 to-indigo-400",
-      lightBg: "bg-purple-50"
-    },
-    {
-      id: "claimsmanagement",
-      category: 'Corporate',
-      title: "Claims Management",
-      desc: "Leadership team ne legal ane financial risks thi bachavva mate.",
-      features: ["Legal Defense", "Decision Protection", "Global Cover"],
-      icon: <ShieldCheck />,
-      accent: "from-rose-500 to-red-400",
-      lightBg: "bg-red-50"
-    },
-    {
-      id: "abilitysuite",
-      category: 'Industrial',
-      title: "Ability Suite",
-      desc: "Insurance leta pehla tamara real risks nu expert assessment.",
-      features: ["Safety Gap Analysis", "Premium Optimization", "Compliance"],
-      icon: <Search />,
-      accent: "from-indigo-500 to-blue-400",
-      lightBg: "bg-indigo-50"
-    }
-  ];
+  {
+    id: "commercialinsurance",
+    category: 'Corporate',
+    title: "Commercial Insurance",
+    desc: "Tamara business assets ane liabilities ne secure karva mate expert cover.",
+    features: ["Property Insurance", "Liability Cover", "Cyber Risk"],
+    icon: <FontAwesomeIcon icon={faBuildingShield} />,
+    accent: "from-blue-500 to-cyan-400",
+    lightBg: "bg-blue-50"
+  },
+  {
+    id: "audits-riskassessment",
+    category: 'Industrial',
+    title: "Audits & Risk Assessment",
+    desc: "Heavy machinery ane industrial units mate specialized risk management.",
+    features: ["Machinery Breakdown", "Fire & Special Perils", "Stock Insurance"],
+    icon: <FontAwesomeIcon icon={faClipboardCheck} />,
+    accent: "from-orange-500 to-amber-400",
+    lightBg: "bg-amber-50"
+  },
+  {
+    id: "employeebenifits",
+    category: 'Health',
+    title: "Employee Benefits",
+    desc: "Tamara team mate best-in-class health insurance ane wellness programs.",
+    features: ["Group Medical", "Accident Cover", "Mental Wellness"],
+    icon: <FontAwesomeIcon icon={faUsersGear} />,
+    accent: "from-emerald-500 to-teal-400",
+    lightBg: "bg-emerald-50"
+  },
+  {
+    id: "lifeinsurance",
+    category: 'Health',
+    title: "Life Insurance",
+    desc: "Tamara parivaar ane employees ni financial security mate long-term protection.",
+    features: ["Term Insurance", "Group Life Cover", "Keyman Insurance"],
+    icon: <FontAwesomeIcon icon={faHeartPulse} />,
+    accent: "from-rose-500 to-pink-400",
+    lightBg: "bg-rose-50"
+  },
+  {
+    id: "claimsmanagement",
+    category: 'Corporate',
+    title: "Claims Management",
+    desc: "Leadership team ne legal ane financial risks thi bachavva mate.",
+    features: ["Legal Defense", "Decision Protection", "Global Cover"],
+    icon: <FontAwesomeIcon icon={faFileShield} />,
+    accent: "from-slate-500 to-slate-400",
+    lightBg: "bg-slate-50"
+  },
+  {
+    id: "greenXinsurance",
+    category: 'Logistics',
+    title: "Green X Insurance",
+    desc: "Goods ni safe delivery mate supply chain insurance solutions.",
+    features: ["Cargo Insurance", "Transit Protection", "Fleet Management"],
+    icon: <FontAwesomeIcon icon={faTruckFast} />,
+    accent: "from-purple-500 to-indigo-400",
+    lightBg: "bg-purple-50"
+  },
+  {
+    id: "suretybond-creditinsurance",
+    category: 'Corporate',
+    title: "Surety Bond",
+    desc: "Contractual obligations ane financial guarantees mate secure bonds.",
+    features: ["Performance Bonds", "Bid Bonds", "Credit Insurance"],
+    icon: <FontAwesomeIcon icon={faFileContract} />,
+    accent: "from-cyan-500 to-blue-400",
+    lightBg: "bg-cyan-50"
+  },
+  {
+    id: "abilitysuite",
+    category: 'Industrial',
+    title: "Ability Suite",
+    desc: "Insurance leta pehla tamara real risks nu expert assessment.",
+    features: ["Safety Gap Analysis", "Premium Optimization", "Compliance"],
+    icon: <FontAwesomeIcon icon={faMagnifyingGlassChart} />,
+    accent: "from-indigo-500 to-blue-400",
+    lightBg: "bg-indigo-50"
+  }
+];
 
   const filteredSolutions = useMemo(() => 
     activeCategory === 'All' 

@@ -17,7 +17,17 @@ import {
   faCar, faLaptopCode, faCogs, faHotel, 
   faLandmark, faCartShopping, faHospitalUser, faShip, 
   faBoxOpen, faScroll, faFlaskVial, faLeaf, 
-  faPrescriptionBottle, faShirt, faIndustry, faTree 
+  faPrescriptionBottle, faShirt, faIndustry, faTree ,faClipboardCheck, 
+  faHandHoldingHeart, 
+  faBuildingShield, 
+  faUsersGear, 
+  faHeartPulse, 
+  faAddressCard,
+  faFileContract,
+  faLightbulb, 
+  faUsers,
+  faHandshakeSimple,
+  faGem
 } from '@fortawesome/free-solid-svg-icons';
 
 // Lucide Imports
@@ -49,11 +59,26 @@ const NAV_DATA = [
     icon: <Globe size={20} />,
     desc: 'Securing your future with trust since 2010.',
     subLinks: [
-      { name: 'Who We Are', href: '/company/whoweare', icon: <ShieldCheck size={16} /> },
-      { name: 'Why Us', href: '/company/whyus', icon: <Star size={16} /> },
-      { name: 'Our Team', href: '/company/ourteam', icon: <Users size={16} /> },
-      { name: 'Our Partners', href: '/company/ourpartners', icon: <Handshake size={16} /> },
-    ],
+      { 
+    name: 'Who We Are', 
+    href: '/company/whoweare', 
+    icon: <FontAwesomeIcon icon={faAddressCard} /> 
+  },
+  { 
+    name: 'Why Us', 
+    href: '/company/whyus', 
+    icon: <FontAwesomeIcon icon={faLightbulb} /> 
+  },
+  { 
+    name: 'Our Team', 
+    href: '/company/ourteam', 
+    icon: <FontAwesomeIcon icon={faUsers} /> 
+  },
+  { 
+    name: 'Our Partners', 
+    href: '/company/ourpartners', 
+    icon: <FontAwesomeIcon icon={faHandshakeSimple} /> 
+  },],
   },
   {
     name: 'Solutions',
@@ -61,12 +86,46 @@ const NAV_DATA = [
     icon: <Zap size={20} />,
     desc: 'Smart, scalable insurance solutions.',
     subLinks: [
-      { name: 'Risk Assessment', href: '/solutions/audits&riskassessment', icon: <ShieldCheck size={16} /> },
-      { name: 'Claims Management', href: '/solutions/claimsmanagement', icon: <Users size={16} /> },
-      { name: 'Commercial Insurance', href: '/solutions/commercialinsurance', icon: <Briefcase size={16} /> },
-      { name: 'Employee Benefits', href: '/solutions/employeebenifits', icon: <Users size={16} /> },
-      { name: 'Life Insurance', href: '/solutions/lifeinsurance', icon: <ShieldCheck size={16} /> },
-    ],
+      { 
+    name: 'Risk Assessment', 
+    href: '/solutions/audits&riskassessment', 
+    icon: <FontAwesomeIcon icon={faClipboardCheck} /> 
+  },
+  { 
+    name: 'Claims Management', 
+    href: '/solutions/claimsmanagement', 
+    icon: <FontAwesomeIcon icon={faHandHoldingHeart} /> 
+  },
+  { 
+    name: 'Commercial Insurance', 
+    href: '/solutions/commercialinsurance', 
+    icon: <FontAwesomeIcon icon={faBuildingShield} /> 
+  },
+  { 
+    name: 'Employee Benefits', 
+    href: '/solutions/employeebenifits', 
+    icon: <FontAwesomeIcon icon={faUsersGear} /> 
+  },
+  { 
+    name: 'Life Insurance', 
+    href: '/solutions/lifeinsurance', 
+    icon: <FontAwesomeIcon icon={faHeartPulse} /> 
+  },
+  { 
+    name: 'Green Energy Insurance', 
+    href: '/solutions/greenXinsurance', 
+    icon: <FontAwesomeIcon icon={faLeaf} /> 
+  },
+  { 
+    name: 'Surity Bond', 
+    href: '/solutions/suretybond&creditinsurance', 
+    icon: <FontAwesomeIcon icon={faFileContract} /> 
+  },
+  { 
+    name: 'Ability Suite', 
+    href: '/solutions/abilitysuite', 
+    icon: <FontAwesomeIcon icon={faGem} /> 
+  },],
   },
   {
     name: 'Industries',
