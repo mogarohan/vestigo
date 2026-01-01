@@ -16,9 +16,6 @@ export default function Footer() {
     <div className='w-full flex flex-col bg-[url(/footer2.jpeg)] bg-cover bg-center bg-no-repeat overflow-hidden'>
       <footer className="relative w-full text-slate-300 overflow-hidden min-h-fit">
         
-        {/* --- FULL BACKGROUND IMAGE --- */}
-        
-        
         {/* --- DARK OVERLAY + BOTTOM GRADIENT --- */}
         <div className="absolute inset-0 z-0 bg-black/20 backdrop-blur-[1px]" />
         
@@ -26,7 +23,7 @@ export default function Footer() {
         <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#0B1120] to-transparent opacity-100" />
 
         {/* --- 1. CTA SECTION --- */}
-        <div className="relative z-10 w-full min-h-[100px] py-8 flex items-center justify-center text-center px-6 ">
+        <div className="relative z-10 w-full min-h-[100px] py-5 flex items-center justify-center text-center px-6 ">
   <div className="px-6 w-full max-w-1xl md:text-3x1 flex flex-col items-center justify-center">
     {/* Heading: Size optimized for a cleaner look */}
     <h2 className="text-white text-3xl font-black uppercase tracking-tight mb-2 leading-tight">
@@ -46,7 +43,7 @@ export default function Footer() {
 </div>
 
         {/* --- 2. MAIN LINKS CONTENT --- */}
-        <div className="relative z-10 max-w-7xl mx-auto  py-5 px-8">
+        <div className="relative z-5 mt-0 max-w-7xl mx-auto  py-6 px-3">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-start">
             
             {/* Logo & About */}
@@ -58,7 +55,7 @@ export default function Footer() {
                 height={30}
                 className="invert opacity-90"
               />
-              <p className="text-[11px] leading-relaxed pr-2 text-slate-300">
+              <p className="text-[13px] leading-relaxed pr-2 text-slate-300">
                 Innovative digital insurance solutions protecting businesses worldwide.
               </p>
               <div className="flex gap-2 pt-1">
@@ -76,11 +73,11 @@ export default function Footer() {
 
             {/* Company */}
             <div className="lg:col-span-1">
-              <h3 className="text-white font-bold text-[13px] uppercase tracking-[0.2em] mb-5 relative inline-block">
+              <h3 className="text-white font-bold text-[20px] uppercase tracking-[0.2em] mb-5 relative inline-block">
                 Company
                 <span className="absolute -bottom-2 left-0 w-6 h-0.5 bg-[#4169E1]"></span>
               </h3>
-              <ul className="space-y-2 text-[11px]">
+              <ul className="space-y-2 text-[15px]">
                 <li><Link href="/company/whoweare" className="hover:text-white transition-all hover:translate-x-1 block">Who We Are</Link></li>
                 <li><Link href="/company/whyus" className="hover:text-white transition-all hover:translate-x-1 block">Why Us</Link></li>
                 <li><Link href="/company/ourteam" className="hover:text-white transition-all hover:translate-x-1 block">Our Team</Link></li>
@@ -90,30 +87,30 @@ export default function Footer() {
 
             {/* Industries Works */}
             <div className="lg:col-span-2">
-              <h3 className="text-white font-bold text-[13px] uppercase tracking-[0.2em] mb-5 lg:ml-20 relative inline-block">
+              <h3 className="text-white font-bold text-[20px] uppercase tracking-[0.2em] mb-5 lg:ml-20 relative inline-block">
                 Industries Works
                 <span className="absolute -bottom-2 left-0 w-6 h-0.5 bg-[#4169E1]"></span>
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 text-[11px]">
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-[15px]">
                   <li><Link href="/industries/automobile" className="hover:text-white transition-all hover:translate-x-1 block truncate">Auto Mobile</Link></li>
                   <li><Link href="/industries/BFSI" className="hover:text-white transition-all hover:translate-x-1 block">BFSI</Link></li>
                   <li><Link href="/industries/chemical&pharmaceuticals" className="hover:text-white transition-all hover:translate-x-1 block truncate">Chemical</Link></li>
                   <li><Link href="/industries/e-commerce" className="hover:text-white transition-all hover:translate-x-1 block">E-Commerce</Link></li>
                 </ul>
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-[15px]">
                   <li><Link href="/industries/engineering" className="hover:text-white transition-all hover:translate-x-1 block">Engineering</Link></li>
                   <li><Link href="/industries/greenenergy" className="hover:text-white transition-all hover:translate-x-1 block truncate">Green Energy</Link></li>
                   <li><Link href="/industries/hospital&education" className="hover:text-white transition-all hover:translate-x-1 block">Education</Link></li>
                   <li><Link href="/industries/hospitality" className="hover:text-white transition-all hover:translate-x-1 block">Hospitality</Link></li>
                 </ul>
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-[15px]">
                   <li><Link href="/industries/it" className="hover:text-white transition-all hover:translate-x-1 block">IT & TECH</Link></li>
                   <li><Link href="/industries/packaging" className="hover:text-white transition-all hover:translate-x-1 block">Packaging</Link></li>
                   <li><Link href="/industries/shipping&odccargo" className="hover:text-white transition-all hover:translate-x-1 block truncate">Shipping</Link></li>
                   <li><Link href="/industries/SME&MSME" className="hover:text-white transition-all hover:translate-x-1 block">SME</Link></li>
                 </ul>
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-[15px]">
                   <li><Link href="/industries/papermills" className="hover:text-white transition-all hover:translate-x-1 block truncate">Paper Mills</Link></li>
                   <li><Link href="/industries/plastic" className="hover:text-white transition-all hover:translate-x-1 block">Plastic</Link></li>
                   <li><Link href="/industries/texttile" className="hover:text-white transition-all hover:translate-x-1 block">TextTile</Link></li>
@@ -124,11 +121,11 @@ export default function Footer() {
 
             {/* Services */}
             <div className="lg:col-span-1">
-              <h3 className="text-white font-bold text-[13px] uppercase tracking-[0.2em] mb-5 relative inline-block">
+              <h3 className="text-white font-bold text-[20px] uppercase tracking-[0.2em] mb-5 relative inline-block">
                 Services
                 <span className="absolute -bottom-2 left-0 w-6 h-0.5 bg-[#4169E1]"></span>
               </h3>
-              <ul className="space-y-2 text-[11px]">
+              <ul className="space-y-2 text-[15px]">
                 <li><Link href="/solutions" className="hover:text-white transition-all hover:translate-x-1 block">Risk Solutions</Link></li>
                 <li><Link href="/industries" className="hover:text-white transition-all hover:translate-x-1 block">Industries</Link></li>
                 <li><Link href="/blogs" className="hover:text-white transition-all hover:translate-x-1 block">Latest Insights</Link></li>
@@ -138,11 +135,11 @@ export default function Footer() {
 
             {/* Contact Us */}
             <div className="lg:col-span-1">
-              <h3 className="text-white font-bold text-[13px] uppercase tracking-[0.2em] mb-5 relative inline-block">
+              <h3 className="text-white font-bold text-[20x] uppercase tracking-[0.2em] mb-5 relative inline-block">
                 Contact Us
                 <span className="absolute -bottom-2 left-0 w-6 h-0.5 bg-[#4169E1]"></span>
               </h3>
-              <ul className="space-y-3 text-[11px]">
+              <ul className="space-y-3 text-[15px]">
                 <li>
                   <a href="tel:+1234567890" className="group flex items-center gap-2 hover:text-white transition-all">
                     <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-[#4169E1] transition-all border border-white/10 flex-shrink-0">
