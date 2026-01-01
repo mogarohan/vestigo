@@ -18,28 +18,29 @@ export default function OurTeam() {
       name: "Rajesh Mehta",
       role: "Founder & CEO",
       desc: "20+ years no insurance industry ma anubhav ane visionary leadership.",
-      image: "/team/member1.jpg", // Potana images add karva
+      // Agar image public/member1.jpg hai, to path ye hoga:
+      image: "/member1.jpg", 
       linkedin: "#"
     },
     {
       name: "Sneha Patel",
       role: "Head of Risk Analysis",
       desc: "Complex business risks ne analyze karva ma expert.",
-      image: "/team/member2.jpg",
+      image: "/member2.png", // Abhi demo ke liye same image use ki hai
       linkedin: "#"
     },
     {
       name: "Amit Shah",
       role: "Claims Director",
       desc: "Tamara claims ne fast ane hassle-free settle karva ma madad kare che.",
-      image: "/team/member3.jpg",
+      image: "/member3.png",
       linkedin: "#"
     },
     {
       name: "Priya Zaveri",
       role: "Customer Success Manager",
       desc: "Client relationship ane 24/7 support team na head.",
-      image: "/team/member4.jpg",
+      image: "/member4.png",
       linkedin: "#"
     }
   ];
@@ -95,13 +96,21 @@ export default function OurTeam() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
+              viewport={{ once: true }}
               className="group"
             >
               <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-100 mb-6 aspect-[4/5]">
-                {/* Image Placeholder - Replace with <Image /> component */}
-                <div className="w-full h-full bg-slate-200 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                   <Users className="w-12 h-12 text-slate-400" />
+                {/* Image Component Fixed Here */}
+                <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-500">
+                  <Image 
+                    src={member.image} 
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
                 </div>
+                
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
                   <div className="flex gap-4">
                     <a href={member.linkedin} className="bg-white p-2 rounded-full text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">

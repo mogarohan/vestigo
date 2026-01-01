@@ -65,7 +65,7 @@ export default function WhoWeAre() {
             className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl"
           >
             <Image 
-              src="/about-us.jpg" // Image add karva 'public' folder ma rakho
+              src="/img3.jpg" // Image add karva 'public' folder ma rakho
               alt="Our Team Working"
               fill
               className="object-cover"

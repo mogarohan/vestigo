@@ -99,7 +99,7 @@ export default function Partners() {
             Chalo sathe mali ne risk management ne modernize kariye.
           </p>
           <Link 
-            href="/contact" 
+            href="/contacts" 
             className="inline-block bg-white text-blue-600 px-10 py-4 rounded-2xl font-bold hover:shadow-2xl hover:scale-105 transition-all"
           >
             Become a Partner

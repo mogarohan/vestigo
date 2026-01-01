@@ -11,14 +11,14 @@ const slides = [
     desc: "We track and trace risks before they reach you using intelligent insurance tech."
   },
   {
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000",
+    image: "/img3.jpg",
     tag: "🛡️ Strategic Security",
     title: "Deep Insights, ",
     highlight: "Corporate Shield.",
     desc: "Tailored insurance solutions built by deeply understanding your specific industry needs."
   },
   {
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000",
     tag: "📈 Asset Growth",
     title: "Stability for ",
     highlight: "Your Future.",

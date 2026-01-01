@@ -152,8 +152,8 @@ export default function Solutions() {
     
     {/* Description Text */}
     <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-      We don't offer generic plans. We engineer insurance architectures 
-      specifically designed for your industry's DNA.
+      We don t offer generic plans. We engineer insurance architectures 
+      specifically designed for your industry s DNA.
     </p>
 
     {/* --- GLASSMORPISM PILL FILTER --- */}
@@ -257,10 +257,10 @@ export default function Solutions() {
               <Layers className="text-blue-400" size={40} />
             </div>
             <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter">
-              Can't find a <span className="text-blue-400 italic font-serif">Perfect</span> Fit?
+              Can t find a <span className="text-blue-400 italic font-serif">Perfect</span> Fit?
             </h2>
             <p className="text-slate-400 text-lg mb-12 leading-relaxed">
-              Every business is a unique entity. If our standard suites don't match your specific risk profile, our underwriters will build a bespoke plan for you from scratch.
+              Every business is a unique entity. If our standard suites don t match your specific risk profile, our underwriters will build a bespoke plan for you from scratch.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white text-slate-900 px-12 py-5 rounded-[2rem] font-black text-lg hover:scale-105 transition-all shadow-2xl">
