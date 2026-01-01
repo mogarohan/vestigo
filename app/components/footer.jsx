@@ -14,17 +14,20 @@ export default function Footer() {
 
   return (
     <div className='w-full flex flex-col'>
-    {/* 1. CTA SECTION (Centered Text over Background Image) */}
-      <div className="relative w-full h-[450px] bg-[url('/footer.jpeg')] bg-cover bg-center bg-no-repeat flex items-center justify-center text-center">
+
+    <footer className="relative bg-[#0B1120]  text-slate-300  overflow-hidden">
+      
+      
+          <div className="relative w-full h-[400px] bg-[url('/footer.jpeg')] bg-cover bg-center bg-no-repeat flex items-center justify-center text-center">
   {/* Dark Overlay to make text readable */}
-  <div className="absolute inset-0 bg-black/60 z-0" />
+  <div className="absolute inset-0 bg-black/50 z-0" />
   
   {/* Gradient Overlay */}
   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B1120] z-0" />
 
   {/* Content Container - Centered Alignment */}
   <div className="relative z-10 px-6 max-w-4xl flex flex-col items-center justify-center">
-    <h2 className="text-white text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4 leading-tight">
+    <h2 className="text-white text-3xl md:text-4x2 font-black uppercase tracking-tighter mb-4 leading-tight">
       Protect your business with the <br /> right insurance strategy
     </h2>
     
@@ -38,18 +41,6 @@ export default function Footer() {
     </button>
   </div>
 </div>
-    <footer className="relative bg-[#0B1120] pt-12 pb-10 text-slate-400  overflow-hidden">
-      
-      {/* Background Image Layer: Blurry & Pale (Low Opacity) */}
-      <div 
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none  blur-[1px]"
-        style={{
-          backgroundImage: '/',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
 
       {/* Main Content: Ensure z-index is higher than background */}
       <div className="relative z-10 max-w-7xl mx-auto p-8">
