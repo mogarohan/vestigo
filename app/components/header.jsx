@@ -169,7 +169,7 @@ export default function Header() {
   return (
     <header className={`fixed left-0 w-full z-[100] ${poppins.className}`}>
       <div className="mw-full mx-auto ">
-        <div className={`flex items-center justify-between px-6 py-3  transition-all ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg' : 'bg-white/90'}`}>
+        <div className={`flex items-center justify-between px-10 py-5  transition-all ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg' : 'bg-white/90'}`}>
           {/* LOGO */}
           <Link href="/">
             <Image src="/logo.svg" alt="Vestigo" width={140} height={40} />
